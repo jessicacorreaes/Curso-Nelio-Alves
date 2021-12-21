@@ -11,6 +11,7 @@ public class Exercicio04 {
         Scanner hr = new Scanner(System.in);
         double horaInicial;
         double horaFinal;
+        double duracao;
 
         System.out.println("Digite a hora inicial:");
         horaInicial = hr.nextDouble();
@@ -18,6 +19,13 @@ public class Exercicio04 {
         horaFinal = hr.nextDouble();
 
 
+        if(horaInicial < horaFinal){
+            duracao = horaFinal - horaInicial;
+        }else{
+            duracao = 24 - horaInicial + horaFinal;
+        }
+
+        System.out.println("O JOGO DUROU " + duracao + " HORA(S)");
 
         hr.close();
 
