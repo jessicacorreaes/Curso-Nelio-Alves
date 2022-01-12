@@ -48,7 +48,7 @@ public class Conta {
     @Override
     public String toString() {
         return "Conta{" +
-                "numeroConta = " + numeroConta +
+                " numeroConta = " + numeroConta +
                 ", nomeTitular = " + nomeTitular +
                 ", valorInicial = " + valorInicial;
                 }
