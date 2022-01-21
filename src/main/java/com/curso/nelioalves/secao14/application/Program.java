@@ -1,7 +1,7 @@
 package com.curso.nelioalves.secao14.application;
 
 import com.curso.nelioalves.secao14.entities.Employee;
-import org.springframework.http.converter.json.GsonBuilderUtils;
+import com.curso.nelioalves.secao14.entities.OutsourcedEmployee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +17,35 @@ public class Program {
 
         List<Employee> list = new ArrayList<>();
 
-        System.out.println(" Enter the number of employer");
+        System.out.print("Enter the number of employees: ");
         int n = sc.nextInt();
 
         for (int i = 1; i <= n; i++){
-            System.out.println("");
+            System.out.println("Employee #" + i + "data:");
+            System.out.print("Outsourced (y/n)?");
+            char ch = sc.next().charAt(0);
+            System.out.print("Name: ");
+            sc.nextLine();
+            String name = sc.nextLine();
+            System.out.print("Hours: ");
+            int hours = sc.nextInt();
+            System.out.print("Value per hour: ");
+            double valorPorHora = sc.nextDouble();
+                if (ch == 'y'){
+                    System.out.print("Additional charge: ");
+                    double add = sc.nextDouble();
+                    Employee emp = new OutsourcedEmployee(name, hours, valorPorHora, add);
+                    list.add(emp);
+                }else
+                    list.add(new Employee(name, hours, valorPorHora));
         }
 
+        System.out.println();
+        System.out.println("Payments");
+            for(Employee emp : list){
+                System.out.println(emp.getName() + " = $ " + String.format("%.2f", emp.payment()));
+            }
+        sc.close();
 
 
     }
